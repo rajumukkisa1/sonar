@@ -1,9 +1,9 @@
 node('maven') {
    stage('checkout tfrs-sample-sonar')
-   git url: 'https://github.com/bcgov/tfrs-sonar-scanner.git'
+   git url: 'https://github.com/rajumukkisa1/sonar.git'
 
    stage('change to working dir')
-   dir('tfrs-sample-project'){
+   dir('sonar'){
 
        stage('execute sonar') {
 
@@ -17,9 +17,9 @@ node('maven') {
            script: 'oc get routes -o wide --no-headers | awk \'/sonarqube/{ print match($0,/edge/) ?  "http://"$2 : "https://"$2 }\'',
            returnStdout: true
               ).trim()
-       echo "SONARQUBE_URL: ${SONARQUBE_URL}"
+       echo "SONARQUBE_URL: ${http://localhost:9000/}"
 
-       sh "./gradlew sonarqube -Dsonar.host.url=\"${SONARQUBE_URL}\" -Dsonar.verbose=true --stacktrace"
+       sh "./gradlew sonarqube -Dsonar.host.url=\"${http://localhost:9000}\" -Dsonar.verbose=true --stacktrace"
 
        }
    }
