@@ -1,5 +1,5 @@
 node('maven') {
-   stage('checkout tfrs-sample-sonar')
+   stage('checkout sonar')
    git url: 'https://github.com/rajumukkisa1/sonar.git'
 
    stage('change to working dir')
